@@ -1,0 +1,40 @@
+/*------------------------------------------------------------
+        Driver Program for STL Stack Template
+  ------------------------------------------------------------*/
+#include <iostream>     // needed for cout/cin
+#include <stack>        // needed for STL stack sequential container
+#include <string>       // needed for string class
+
+using namespace std;
+
+int main()
+{
+    stack<char> iStack;
+    string userExpression;
+
+    cout << "Enter expression: ";
+    getline(cin, userExpression);
+    cout << "------------------------" << endl;
+
+    for (int i = 0; i < userExpression.length(); i++)
+    {
+
+        if ( userExpression[i] == '(' )
+        {
+            iStack.push(userExpression[i]);
+        }
+
+        else if ( userExpression[i] == ')' )
+        {
+            iStack.pop();
+        }
+    }
+
+    if ( iStack.empty())
+        cout << "Balanced Parenthesis " << endl;
+
+    else
+        cout << "Unbalanced Parenthesis " << endl;
+
+    return 0;
+}
